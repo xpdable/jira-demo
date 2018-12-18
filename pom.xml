@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.daimler.iti</groupId>
+  <artifactId>jira-demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>jira-demo</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+      <repositories>
+	    <repository>
+		      <id>atlassian-public</id>
+		      <url>https://packages.atlassian.com/maven/repository/public</url>
+		      <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		        <checksumPolicy>warn</checksumPolicy>
+		      </snapshots>
+		       <releases>
+		         <enabled>true</enabled>
+		         <checksumPolicy>warn</checksumPolicy>
+		      </releases>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>atlassian-public</id>
+		      <url>https://packages.atlassian.com/maven/repository/public</url>
+		      <snapshots>
+		        <enabled>true</enabled>
+		        <updatePolicy>never</updatePolicy>
+		        <checksumPolicy>warn</checksumPolicy>
+		      </snapshots>
+		       <releases>
+		         <enabled>true</enabled>
+		         <checksumPolicy>warn</checksumPolicy>
+		      </releases>
+		</pluginRepository>
+	</pluginRepositories>
+	
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+    <dependency>
+    	<groupId>com.atlassian.jira</groupId>
+        <artifactId>jira-rest-java-client-core</artifactId>
+        <!-- <version>5.1.1-SNAPSHOT</version> -->
+    	<version>3.0.0</version>
+    </dependency>
+<!--    <dependency>
+ 	 <groupId>io.atlassian.fugue</groupId>
+	 <artifactId>fugue</artifactId>
+ 	<version>4.7.1</version>
+   </dependency>  -->
+   <dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-simple</artifactId>
+	    <version>1.7.25</version>
+	    <scope>test</scope>
+   </dependency>
+    
+  </dependencies>
+  
+  <build>
+	  <plugins>
+	  	<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-compiler-plugin</artifactId>
+		    <version>3.8.0</version>
+		    <configuration>
+<!-- 		        <release>10</release> -->
+		          <source>1.8</source>
+		          <target>1.8</target>
+		    </configuration>
+<!-- 		    <dependencies>
+		        <dependency>
+		            <groupId>org.ow2.asm</groupId>
+		            <artifactId>asm</artifactId>
+		            <version>6.2</version> Use newer version of ASM
+		        </dependency>
+		    </dependencies> -->
+		</plugin>
+		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-assembly-plugin</artifactId>
+			<version>2.2.1</version>    
+			<executions>
+		        <execution>
+		            <phase>package</phase>
+		            <goals>
+		                <goal>single</goal>
+		            </goals>
+		            <configuration>
+		                <archive>
+		                <manifest>
+		                    <mainClass>
+		                        com.daimler.iti.jira_demo.JiraExample
+		                    </mainClass>
+		                </manifest>
+		                </archive>
+		                <descriptorRefs>
+		                    <descriptorRef>jar-with-dependencies</descriptorRef>
+		                </descriptorRefs>
+		            </configuration>
+		        </execution>
+			    </executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
