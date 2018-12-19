@@ -12,8 +12,7 @@ node('base') {
         sh "mvn clean install -B -Dmaven.test.skip=true"
    }
    stage('Results') {
-        println "Result"
-  
+        println "Result"  
       
    }
 }
