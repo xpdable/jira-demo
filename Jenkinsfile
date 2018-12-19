@@ -1,5 +1,6 @@
 node('base') {
 
+
    properties([pipelineTriggers([githubPush()])])
 
    stage('Preparation') { // for display purposes
