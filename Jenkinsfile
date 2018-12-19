@@ -3,8 +3,7 @@ node('base') {
    properties([pipelineTriggers([githubPush()])])
 
    stage('Preparation') { // for display purposes
-        println "Preparation"
-        //git credentialsId: 'xiaopen-AD', url: 'https://code-management.mercedes-benz.com.cn/XIAOPEN/jira-demo.git'
+        println "Preparation"       
 	git branch: 'master', url: 'https://github.com/xpdable/jira-demo.git'
 
    }
