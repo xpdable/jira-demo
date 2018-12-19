@@ -13,7 +13,6 @@ node('base') {
    }
 
    stage('Results') {
-        println "Result"  
-      
+        println "Result"        
    }
 }
