@@ -90,6 +90,7 @@
 		            <version>6.2</version> Use newer version of ASM
 		        </dependency>
 		    </dependencies> -->
+			
 		</plugin>
 		<plugin>
 		    <groupId>org.apache.maven.plugins</groupId>
